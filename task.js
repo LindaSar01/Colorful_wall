@@ -14,8 +14,8 @@ function generateColors(number)
         for(let j = 0; j < 6; j++)
         {
             var index = Math.round(Math.random() * 15);
-            var value = hex[index];
-            color += value;
+            var value = hex[index]
+            color += value
         }
         colors.push(color)
         color = "#"
@@ -30,12 +30,12 @@ function pickColor(colors)
 
 function displayWall()
 {
-    wall = document.getElementById("wall");
+    wall = document.getElementById("wall")
     width = document.getElementById("width").value
     height = document.getElementById("height").value
     numOfColors = document.getElementById("numOfColors").value
-    wall.style.setProperty('grid-template-columns', 'repeat(' + width + ', 50px)');
-    wall.style.setProperty('grid-template-rows', 'repeat(' + height + ', 50px)');
+    wall.style.setProperty('grid-template-columns', 'repeat(' + width + ', 50px)')
+    wall.style.setProperty('grid-template-rows', 'repeat(' + height + ', 50px)')
     var cells = []
     generateColors(numOfColors)
 
@@ -48,13 +48,13 @@ function displayWall()
     }
     for(let i = 0; i < height * width; i++)
     {
-        let randomColor = pickColor(colors);
+        let randomColor = pickColor(colors)
         cells[i].style.setProperty("background-color", randomColor)
-        cellColors[i] = randomColor;
+        cellColors[i] = randomColor
         cells[i].addEventListener("click", 
         function()
         {
-            let invertedColor = invertColor(cellColors[i]);
+            let invertedColor = invertColor(cellColors[i])
             cells[i].style.setProperty("background-color", invertedColor)
             cellColors[i] = invertedColor
         }
