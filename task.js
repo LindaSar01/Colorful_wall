@@ -13,7 +13,7 @@ function generateColors(number)
     {
         for(let j = 0; j < 6; j++)
         {
-            var index = Math.round(Math.random() * 15);
+            var index = Math.round(Math.random() * 15)
             var value = hex[index]
             color += value
         }
