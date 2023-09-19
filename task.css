@@ -1,0 +1,39 @@
+body
+{
+    background-color: white;
+}
+
+.wall
+{
+    display: grid;
+    padding-top: 40px;
+    row-gap: 5px;
+    column-gap: 5px;
+    align-content: center;
+    justify-content: center;
+}
+
+.button-div
+{
+    margin-top: 15px;
+    text-align: center;
+}
+
+.generate
+{
+    padding: 10px 7px 10px 7px;
+    background-color: rgb(46, 223, 164);
+    border: none;
+    font-weight: bold;
+    width: 177px;
+}
+
+.user-input
+{
+    text-align: center;
+}
+
+.general
+{
+    
+}
