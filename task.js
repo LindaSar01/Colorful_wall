@@ -37,6 +37,7 @@ function displayWall()
     wall.style.setProperty('grid-template-columns', 'repeat(' + width + ', 50px)')
     wall.style.setProperty('grid-template-rows', 'repeat(' + height + ', 50px)')
     var cells = []
+    cellColors = []
     generateColors(numOfColors)
 
     for(let i = 0; i < height * width; i++)
@@ -48,7 +49,7 @@ function displayWall()
     }
     for(let i = 0; i < height * width; i++)
     {
-        let randomColor = pickColor(colors)
+        let randomColor = pickColor(colors);
         cells[i].style.setProperty("background-color", randomColor)
         cellColors[i] = randomColor
         cells[i].addEventListener("click", 
@@ -59,6 +60,63 @@ function displayWall()
             cellColors[i] = invertedColor
         }
         )
+    }
+
+    for(let i = 0; i < height * width; i++)
+    {
+        cells[i].addEventListener('click', function()
+        {
+            var r = Math.floor(i / width)
+            var c = Math.floor(i - r * width)
+            
+            var tempR = r
+            var tempC = c
+
+            while(r - 1 >= 0 && c - 1 >= 0)
+            {
+                let indexDiag = Math.floor((r - 1) * width + (c - 1))
+                let invertedColor = invertColor(cellColors[indexDiag])
+                cells[indexDiag].style.setProperty("background-color", invertedColor)
+                cellColors[indexDiag] = invertedColor
+                r--
+                c--
+            }
+            r = tempR
+            c = tempC
+            while(r + 1 < height && c + 1 < width)
+            {
+                let indexDiag = Math.floor((r + 1) * width + (c + 1))
+                let invertedColor = invertColor(cellColors[indexDiag])
+                cells[indexDiag].style.setProperty("background-color", invertedColor)
+                cellColors[indexDiag] = invertedColor
+                r++
+                c++
+            }
+            r = tempR
+            c = tempC
+            while(r - 1 >= 0 && c + 1 < width)
+            {
+                let indexDiag = Math.floor((r - 1) * width + (c + 1))
+                let invertedColor = invertColor(cellColors[indexDiag])
+                cells[indexDiag].style.setProperty("background-color", invertedColor)
+                cellColors[indexDiag] = invertedColor
+                r--
+                c++
+            }
+            r = tempR
+            c = tempC
+            while(r + 1 < height && c - 1 >= 0)
+            {
+                let indexDiag = Math.floor((r + 1) * width + (c - 1))
+                let invertedColor = invertColor(cellColors[indexDiag])
+                cells[indexDiag].style.setProperty("background-color", invertedColor)
+                cellColors[indexDiag] = invertedColor
+                r++
+                c--
+            }
+            r = tempR
+            c = tempC
+        })
     }
 }
 
