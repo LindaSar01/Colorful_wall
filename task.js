@@ -34,11 +34,18 @@ function displayWall()
     width = document.getElementById("width").value
     height = document.getElementById("height").value
     numOfColors = document.getElementById("numOfColors").value
-    wall.style.setProperty('grid-template-columns', 'repeat(' + width + ', 50px)')
-    wall.style.setProperty('grid-template-rows', 'repeat(' + height + ', 50px)')
-    var cells = []
-    cellColors = []
+    wall.style.setProperty('grid-template-columns', 'repeat(' + width + ', 1fr)')
+    wall.style.setProperty('grid-template-rows', 'repeat(' + height + ', 1fr)')
+
+    if(wall.hasChildNodes())
+    {
+        while(wall.firstChild)
+            wall.removeChild(wall.firstChild);
+    }
+    colors = []
     generateColors(numOfColors)
+    cellColors = []
+    var cells = []
 
     for(let i = 0; i < height * width; i++)
     {

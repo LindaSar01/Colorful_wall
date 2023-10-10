@@ -1,16 +1,18 @@
 body
 {
     background-color: white;
+    padding-bottom: 1000px;
 }
 
 .wall
 {
+    margin: auto;
     display: grid;
+    width: auto;
+    height: 500px;
     padding-top: 40px;
     row-gap: 5px;
     column-gap: 5px;
-    align-content: center;
-    justify-content: center;
 }
 
 .button-div
@@ -26,6 +28,16 @@ body
     border: none;
     font-weight: bold;
     width: 177px;
+}
+
+.generate:hover
+{
+    background-color: peru;
+}
+
+.generate:active
+{
+    background-color: aquamarine;
 }
 
 .user-input
